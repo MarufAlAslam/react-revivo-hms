@@ -12,6 +12,7 @@ import icon8 from "../../../../assets/icons/salon.svg";
 const Addons = ({ currentID, setCurrentID, decrementId, incrementId }) => {
   // select checkbox and change the label background
   const [selected, setSelected] = React.useState(false);
+  setSelected(false)
 
   const handleSelect = (e) => {
   };

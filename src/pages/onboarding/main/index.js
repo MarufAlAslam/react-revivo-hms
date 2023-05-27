@@ -14,7 +14,7 @@ const Main = ({ currentID, setCurrentID }) => {
       };
     
       const incrementId = () => {
-        if (currentID === 6) {
+        if (currentID === 8) {
           return;
         }
         setCurrentID(currentID + 1);
@@ -28,7 +28,7 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 2 && <DocumentsVerification currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 3 && <AccomodationDetails currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 4 && <Capacity currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
-        {currentID === 5 && <Addons/>}
+        {currentID === 5 && <Addons  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
       </form>
     </div>
   );
