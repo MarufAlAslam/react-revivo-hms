@@ -1,49 +1,67 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../../assets/images/pngs/onboarding-logo.png";
 
-const Sidebar = () => {
-  const sidebarData = [
-    {
-      id: 1,
-      title: "Primary Information",
-      status: "active",
-    },
-    {
-      id: 2,
-      title: "Documents Verification",
-      status: "inactive",
-    },
-    {
-      id: 3,
-      title: "Accomodation details",
-      status: "inactive",
-    },
-    {
-      id: 4,
-      title: "Capacity",
-      status: "inactive",
-    },
-    {
-      id: 5,
-      title: "Add on Services",
-      status: "inactive",
-    },
-    {
-      id: 6,
-      title: "Amenities",
-      status: "inactive",
-    },
-    {
-      id: 7,
-      title: "Images",
-      status: "inactive",
-    },
-    {
-      id: 8,
-      title: "Guest Policies",
-      status: "inactive",
-    },
-  ];
+const Sidebar = ({currentID}) => {
+    console.log(currentID);
+  const [sidebarData, setSidebarData] = React.useState(
+    [
+        {
+          id: 1,
+          title: "Primary Information",
+          status: "inactive",
+        },
+        {
+          id: 2,
+          title: "Documents Verification",
+          status: "inactive",
+        },
+        {
+          id: 3,
+          title: "Accomodation details",
+          status: "inactive",
+        },
+        {
+          id: 4,
+          title: "Capacity",
+          status: "inactive",
+        },
+        {
+          id: 5,
+          title: "Add on Services",
+          status: "inactive",
+        },
+        {
+          id: 6,
+          title: "Amenities",
+          status: "inactive",
+        },
+        {
+          id: 7,
+          title: "Images",
+          status: "inactive",
+        },
+        {
+          id: 8,
+          title: "Guest Policies",
+          status: "inactive",
+        },
+      ]
+  )
+
+//   set current id to active
+ useEffect(() => {
+    const newSidebarData = sidebarData.map((item) => {
+        if(item.id === currentID){
+            return {...item, status: 'active'}
+        }else{
+            return {...item, status: 'inactive'}
+        }
+    })
+    setSidebarData(newSidebarData);
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [currentID]);
+
+
   return (
     <div className="sidebar">
       <div className="text-center">

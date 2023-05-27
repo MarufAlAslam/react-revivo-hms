@@ -93,3 +93,7 @@ input[type=number]::-webkit-outer-spin-button {
 .onboarding-sidebar{
     background: linear-gradient(180deg, #007FFF 0%, #2A53E4 100%);
 }
+
+.shadow-custom{
+    box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
