@@ -6,6 +6,7 @@ import Capacity from "./capacity";
 import Addons from "./addons";
 import Amenities from "./amenities";
 import Images from "./images";
+import Policy from "./policy";
 
 const Main = ({ currentID, setCurrentID }) => {
     const decrementId = () => {
@@ -33,6 +34,7 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 5 && <Addons  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 6 && <Amenities  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 7 && <Images  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
+        {currentID === 8 && <Policy  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
 
       </form>
     </div>

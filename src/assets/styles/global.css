@@ -139,3 +139,7 @@ body, html{
   border: unset !important;
   background: white;
 }
+
+.policy .ant-collapse-content-box {
+    padding: 5px 16px !important;
+}
