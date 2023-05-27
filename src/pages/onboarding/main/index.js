@@ -14,7 +14,7 @@ const Main = ({ currentID, setCurrentID }) => {
       };
     
       const incrementId = () => {
-        if (currentID === 8) {
+        if (currentID === 6) {
           return;
         }
         setCurrentID(currentID + 1);

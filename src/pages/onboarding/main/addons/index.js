@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import icon1 from "../../../../assets/icons/kitchen.svg";
 import icon2 from "../../../../assets/icons/housekeeping.svg";
@@ -10,55 +10,74 @@ import icon7 from "../../../../assets/icons/gym.svg";
 import icon8 from "../../../../assets/icons/salon.svg";
 
 const Addons = ({ currentID, setCurrentID, decrementId, incrementId }) => {
-  // select checkbox and change the label background
-  const [selected, setSelected] = React.useState(false);
-  setSelected(false)
 
-  const handleSelect = (e) => {
-  };
 
-  const data = [
+  const [data, setData] = useState([
     {
       id: 1,
       icon: icon1,
+      selected: false,
       title: "Kitchen",
     },
     {
       id: 2,
       icon: icon2,
+      selected: false,
       title: "Housekeeping",
     },
     {
-        id: 3,
-        icon: icon3,
-        title: "Banquet",
+      id: 3,
+      icon: icon3,
+      selected: false,
+      title: "Banquet",
     },
     {
-        id: 4,
-        icon: icon4,
-        title: "Laundry",
+      id: 4,
+      icon: icon4,
+      selected: false,
+      title: "Laundry",
     },
     {
-        id: 5,
-        icon: icon5,
-        title: "Spa",
+      id: 5,
+      icon: icon5,
+      selected: false,
+      title: "Spa",
     },
     {
-        id: 6,
-        icon: icon6,
-        title: "Swimming Pool",
+      id: 6,
+      icon: icon6,
+      selected: false,
+      title: "Swimming Pool",
     },
     {
-        id: 7,
-        icon: icon7,
-        title: "Gym",
+      id: 7,
+      icon: icon7,
+      selected: false,
+      title: "Gym",
     },
     {
-        id: 8,
-        icon: icon8,
-        title: "Salon",
+      id: 8,
+      icon: icon8,
+      selected: false,
+      title: "Salon",
     }
-  ];
+  ]
+  )
+
+  const handleSelect = (id) => {
+    const newData = data.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          selected: !item.selected,
+        };
+      }
+      return item;
+    });
+    setData(newData);
+  };
+
+
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -79,22 +98,20 @@ const Addons = ({ currentID, setCurrentID, decrementId, incrementId }) => {
         </p>
 
         <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-          {data.map((item) => (
-            <div className="checkbox-holder">
+          {data.map((item, index) => (
+            <div className="checkbox-holder cursor-pointer" key={index}>
               <input
                 type="checkbox"
-                onChange={handleSelect}
+                onChange={()=>handleSelect(index + 1)}
                 className="hidden"
-                id="checkbox1"
+                id={`checkbox${index + 1}`}
               />
               <label
-                htmlFor="checkbox1"
-                className={`text-2xl block w-full ${
-                  selected ? "text-[#ffffff]" : "text-[#4F4F4F]"
-                } rounded-[8px] 
-                 ${
-                   selected ? "bg-[#7E8082]" : "bg-[#ECECEC]"
-                 } p-[15px] pl-[20px]`}
+                htmlFor={`checkbox${index + 1}`}
+                className={`text-2xl block w-full ${item.selected ? "text-[#ffffff]" : "text-[#4F4F4F]"
+                  } rounded-[8px] 
+                 ${item.selected ? "bg-[#7E8082]" : "bg-[#ECECEC]"
+                  } p-[15px] pl-[20px]`}
               >
                 <img
                   src={item.icon}

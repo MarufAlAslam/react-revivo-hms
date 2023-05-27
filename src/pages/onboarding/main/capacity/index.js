@@ -71,7 +71,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   type="text"
                   className="w-[55px] text-center text-[#007FFF] font-semibold"
-                  value="1"
+                  defaultValue="1"
                 />
                 <span className="text-[#007FFF] cursor-pointer flex justify-center items-center w-[32px] h-[32px] bg-[#F0F0F0] rounded-full ml-[10px]">
                   <FaPlus className="" />
@@ -107,7 +107,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -122,7 +122,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -137,7 +137,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -152,7 +152,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -167,7 +167,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -182,7 +182,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -197,7 +197,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -212,7 +212,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -255,7 +255,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   type="text"
                   className="w-[55px] text-center text-[#007FFF] font-semibold"
-                  value="1"
+                  defaultValue="1"
                 />
                 <span className="text-[#007FFF] cursor-pointer flex justify-center items-center w-[32px] h-[32px] bg-[#F0F0F0] rounded-full ml-[10px]">
                   <FaPlus className="" />
@@ -291,7 +291,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -306,7 +306,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -321,7 +321,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -336,7 +336,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -351,7 +351,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -366,7 +366,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -381,7 +381,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -396,7 +396,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -441,7 +441,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   type="text"
                   className="w-[55px] text-center text-[#007FFF] font-semibold"
-                  value="1"
+                  defaultValue="1"
                 />
                 <span className="text-[#007FFF] cursor-pointer flex justify-center items-center w-[32px] h-[32px] bg-[#F0F0F0] rounded-full ml-[10px]">
                   <FaPlus className="" />
@@ -477,7 +477,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -492,7 +492,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -507,7 +507,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -522,7 +522,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -537,7 +537,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -552,7 +552,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -567,7 +567,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
@@ -582,7 +582,7 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                     id="room1"
                     className="hidden"
                     name="room1"
-                    value="room1"
+                    defaultValue="room1"
                   />
                   <label
                     for="room1"
