@@ -6,38 +6,47 @@ const DocumentsVerification = ({
   decrementId,
   incrementId,
 }) => {
+  const [panName, setPanName] = React.useState("");
+  const [panSize, setPanSize] = React.useState("");
 
-    const [panName, setPanName] = React.useState("");
-    const [panSize, setPanSize] = React.useState("");
+  const [gstName, setGstName] = React.useState("");
+  const [gstSize, setGstSize] = React.useState("");
 
-    const [gstName, setGstName] = React.useState("");
-    const [gstSize, setGstSize] = React.useState("");
+  const [bankName, setBankName] = React.useState("");
+  const [bankSize, setBankSize] = React.useState("");
 
-    const [bankName, setBankName] = React.useState("");
-    const [bankSize, setBankSize] = React.useState("");
+  // get the name of uploaded file and size
+  const panUpload = (e) => {
+    e.preventDefault();
+    setPanName(e.target.files[0].name);
+    setPanSize(e.target.files[0].size);
+  };
 
-    // get the name of uploaded file and size
-    const panUpload = (e) => {
-        e.preventDefault();
-        setPanName(e.target.files[0].name);
-        setPanSize(e.target.files[0].size);
-    }
+  const gstUpload = (e) => {
+    e.preventDefault();
+    setGstName(e.target.files[0].name);
+    setGstSize(e.target.files[0].size);
+  };
 
-    const gstUpload = (e) => {
-        e.preventDefault();
-        setGstName(e.target.files[0].name);
-        setGstSize(e.target.files[0].size);
-    }
-
-    const bankUpload = (e) => {
-        e.preventDefault();
-        setBankName(e.target.files[0].name);
-        setBankSize(e.target.files[0].size);
-    }
-
+  const bankUpload = (e) => {
+    e.preventDefault();
+    setBankName(e.target.files[0].name);
+    setBankSize(e.target.files[0].size);
+  };
 
   return (
     <div>
+      <div className="flex justify-between items-center">
+        <h2 className="text-5xl font-semibold uppercase text-[#4f4f4f]">
+          Let’s Get started
+        </h2>
+        <span
+          onClick={incrementId}
+          className="text-[#007FFF] text-2xl font-semibold uppercase cursor-pointer"
+        >
+          Skip
+        </span>
+      </div>
       <div className="grid md:grid-cols-3 grid-cols-1 mt-[40px] gap-40">
         <div className="col-span-2">
           <p className="text-2xl text-[#323F4B]">
@@ -66,8 +75,9 @@ const DocumentsVerification = ({
                 </label>
               </div>
 
-              <p className="text-lg text-[#535353] ml-[45px]">{panName} {panSize && "("+ Math.ceil(panSize / 1024) +"KB)"}</p>
-
+              <p className="text-lg text-[#535353] ml-[45px]">
+                {panName} {panSize && "(" + Math.ceil(panSize / 1024) + "KB)"}
+              </p>
             </div>
             <div className="flex justify-start items-center mb-[36px]">
               <div className="flex justify-between items-center md:w-[60%]">
@@ -87,8 +97,9 @@ const DocumentsVerification = ({
                 </label>
               </div>
 
-              <p className="text-lg text-[#535353] ml-[45px]">{gstName} {gstSize && "("+ Math.ceil(gstSize / 1024) +"KB)"}</p>
-
+              <p className="text-lg text-[#535353] ml-[45px]">
+                {gstName} {gstSize && "(" + Math.ceil(gstSize / 1024) + "KB)"}
+              </p>
             </div>
             <div className="flex justify-start items-center mb-[36px]">
               <div className="flex justify-between items-center md:w-[60%]">
@@ -108,8 +119,10 @@ const DocumentsVerification = ({
                 </label>
               </div>
 
-              <p className="text-lg text-[#535353] ml-[45px]">{bankName} {bankSize && "("+ Math.ceil(bankSize / 1024) +"KB)"}</p>
-
+              <p className="text-lg text-[#535353] ml-[45px]">
+                {bankName}{" "}
+                {bankSize && "(" + Math.ceil(bankSize / 1024) + "KB)"}
+              </p>
             </div>
           </div>
 

@@ -43,26 +43,34 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
     },
   ];
 
-  
+  //   get uploaded image and preview in viewer
+  // const [image, setImage] = React.useState(null);
+  const [preview, setPreview] = React.useState(rect);
 
-//   get uploaded image and preview in viewer
-    // const [image, setImage] = React.useState(null);
-    const [preview, setPreview] = React.useState(rect);
-
-    const handleImageChange = (e) => {
-        e.preventDefault();
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        reader.onloadend = () => {
-        // setImage(file);
-        setPreview(reader.result);
-        };
-        reader.readAsDataURL(file);
+  const handleImageChange = (e) => {
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+    reader.onloadend = () => {
+      // setImage(file);
+      setPreview(reader.result);
     };
+    reader.readAsDataURL(file);
+  };
 
   return (
     <div>
-      
+      <div className="flex justify-between items-center">
+        <h2 className="text-5xl font-semibold uppercase text-[#4f4f4f]">
+          Let’s Get started
+        </h2>
+        <span
+          onClick={incrementId}
+          className="text-[#007FFF] text-2xl font-semibold uppercase cursor-pointer"
+        >
+          Skip
+        </span>
+      </div>
 
       <div className="grid md:grid-cols-3 grid-cols-1 mt-[40px] gap-40">
         <div className="col-span-2">
@@ -112,7 +120,12 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
             Upto 500 Kb, jpeg, png only
           </p>
 
-          <img src={preview} alt="rect" id="viewer" className="my-[20px] w-full h-220px object-cover" />
+          <img
+            src={preview}
+            alt="rect"
+            id="viewer"
+            className="my-[20px] w-full h-220px object-cover"
+          />
 
           <input
             type="file"
