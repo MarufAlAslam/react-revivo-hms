@@ -52,7 +52,7 @@ const OtpModal = ({setDisplayModal}) => {
               We have sent a verification code to 894783854
             </p>
 
-            <form className="mt-[45px]">
+            <form className="mt-[45px]" action="/onBoarding">
               <div className="flex justify-between items-center md:w-[80%]">
                 <input
                   type="number"
