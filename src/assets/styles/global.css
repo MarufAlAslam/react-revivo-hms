@@ -97,3 +97,11 @@ input[type=number]::-webkit-outer-spin-button {
 .shadow-custom{
     box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
+
+body, html{
+    overflow: hidden;
+}
+.main-field {
+    overflow-y: scroll;
+    height: 100vh;
+}
