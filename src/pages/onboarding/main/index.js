@@ -22,7 +22,7 @@ const Main = ({ currentID, setCurrentID }) => {
         <h2 className="text-5xl font-semibold uppercase text-[#4f4f4f]">
           Let’s Get started
         </h2>
-        <span className="text-[#007FFF] text-2xl font-semibold uppercase cursor-pointer">
+        <span onClick={incrementId} className="text-[#007FFF] text-2xl font-semibold uppercase cursor-pointer">
           Skip
         </span>
       </div>
@@ -30,7 +30,7 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 1 && (
           <PrimaryInfo currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />
         )}
-        {currentID === 2 && <DocumentsVerification />}
+        {currentID === 2 && <DocumentsVerification currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
       </form>
     </div>
   );
