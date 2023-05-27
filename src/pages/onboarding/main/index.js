@@ -3,6 +3,7 @@ import PrimaryInfo from "./primaryInfo";
 import DocumentsVerification from "./documentsVerification";
 import AccomodationDetails from "./accomodationDetails";
 import Capacity from "./capacity";
+import Addons from "./addons";
 
 const Main = ({ currentID, setCurrentID }) => {
     const decrementId = () => {
@@ -27,6 +28,7 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 2 && <DocumentsVerification currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 3 && <AccomodationDetails currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 4 && <Capacity currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
+        {currentID === 5 && <Addons/>}
       </form>
     </div>
   );
