@@ -104,3 +104,38 @@ body, html{
     overflow-y: scroll;
     height: 100vh;
 }
+
+.ant-collapse-expand-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  color:#007FFF;
+}
+.ant-collapse-content-box {
+  padding-top: 42px !important;
+  padding-bottom: 42px !important;
+}
+.ant-collapse-content {
+  border: unset !important;
+}
+.ant-collapse-item {
+  border: unset !important;
+  background: white;
+}

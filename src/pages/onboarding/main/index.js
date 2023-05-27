@@ -4,6 +4,7 @@ import DocumentsVerification from "./documentsVerification";
 import AccomodationDetails from "./accomodationDetails";
 import Capacity from "./capacity";
 import Addons from "./addons";
+import Amenities from "./amenities";
 
 const Main = ({ currentID, setCurrentID }) => {
     const decrementId = () => {
@@ -14,7 +15,7 @@ const Main = ({ currentID, setCurrentID }) => {
       };
     
       const incrementId = () => {
-        if (currentID === 6) {
+        if (currentID === 8) {
           return;
         }
         setCurrentID(currentID + 1);
@@ -29,6 +30,8 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 3 && <AccomodationDetails currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 4 && <Capacity currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 5 && <Addons  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
+        {currentID === 6 && <Amenities  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
+
       </form>
     </div>
   );
