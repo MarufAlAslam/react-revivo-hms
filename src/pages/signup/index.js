@@ -4,7 +4,7 @@ import CarouselSingle from "../../components/shared/carouselSingle";
 import thumb from "../../assets/images/svgs/thumb.svg";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   return (
     <div className="login-page relative py-[90px] min-h-screen">
       <div className="bg-[#F5F5F5] absolute w-1/2 right-0 top-0 h-full"></div>
@@ -50,11 +50,11 @@ const Login = () => {
                 </label>
               </div>
 
-              <button className="btn-primary w-full mt-[80px] text-2xl font-semibold rounded-[8px]">LOGIN</button>
+              <button className="btn-primary w-full mt-[80px] text-2xl font-semibold rounded-[8px] uppercase">Sign up</button>
             </form>
 
             <p className="font-bold text-xl text-black mt-[90px]">
-            Don’t have an account yet? <Link to="/signup" className="text-[#007FFF]">Sign Up</Link>
+            Already have an account? <Link to="/" className="text-[#007FFF]">Log in</Link>
             </p>
           </div>
         </div>
@@ -63,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

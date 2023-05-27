@@ -54,7 +54,7 @@ li.paging-item * {
   fill: transparent !important;
 }
 
-input {
+.input {
   background: #ffffff6d;
   width: 100%;
   padding: 10px;
