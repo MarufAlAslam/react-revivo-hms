@@ -143,3 +143,16 @@ body, html{
 .policy .ant-collapse-content-box {
     padding: 5px 16px !important;
 }
+
+@media screen and (max-width: 768px) {
+    body, html{
+        overflow: auto;
+    }
+    .main-field {
+      overflow-y: auto;
+      height: auto;
+  }
+  .bg-\[\#F5F5F5\].absolute.w-1\/2.right-0.top-0.h-full {
+    display: none;
+}
+}
