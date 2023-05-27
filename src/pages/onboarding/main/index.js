@@ -1,6 +1,7 @@
 import React from "react";
 import PrimaryInfo from "./primaryInfo";
 import DocumentsVerification from "./documentsVerification";
+import AccomodationDetails from "./accomodationDetails";
 
 const Main = ({ currentID, setCurrentID }) => {
     const decrementId = () => {
@@ -23,6 +24,7 @@ const Main = ({ currentID, setCurrentID }) => {
           <PrimaryInfo currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />
         )}
         {currentID === 2 && <DocumentsVerification currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
+        {currentID === 3 && <AccomodationDetails currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
       </form>
     </div>
   );
