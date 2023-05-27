@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+.custom-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media screen and (min-width: 1500px) {
+  .custom-container {
+    max-width: 1400px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .custom-container {
+    max-width: 1500px;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .custom-container {
+    max-width: 1600px;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .custom-container {
+    max-width: 1800px;
+  }
+}
+
+/* slider */
+.slider-control-bottomcenter {
+  top: 50px;
+  position: relative;
+}
+li.paging-item {
+  width: 30px;
+  background: #c4c4c4;
+  transition: 0.4s;
+  margin: 0 5px;
+  height: 15px;
+  border-radius: 30px;
+  color: transparent !important;
+}
+
+li.paging-item.active {
+  width: 60px;
+}
+
+li.paging-item * {
+  fill: transparent !important;
+}
+
+input {
+  background: #ffffff6d;
+  width: 100%;
+  padding: 10px;
+  height: 55px;
+
+  border: 1px solid #4f4f4f;
+  border-radius: 4px;
+}
+
+::placeholder{
+    color: #4F4F4F;
+}
+
+.btn-primary{
+    background-color: #007FFF;
+    color: white;
+    padding: 16px;
+}
