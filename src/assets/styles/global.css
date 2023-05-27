@@ -73,3 +73,19 @@ li.paging-item * {
     color: white;
     padding: 16px;
 }
+
+.otp-input{
+    width: 65px;
+    height: 65px;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 30px;
+}
+
+/* hide number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
