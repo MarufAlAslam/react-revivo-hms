@@ -1,9 +1,26 @@
 import React from "react";
 import room from "../../../../assets/icons/room.svg";
 
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
 
 const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
+  const [expanded1, setExpanded1] = React.useState(false);
+  const [expanded2, setExpanded2] = React.useState(false);
+  const [expanded3, setExpanded3] = React.useState(false);
+
+  const expand1 = () => {
+    setExpanded1(!expanded1);
+  };
+
+  const expand2 = () => {
+    setExpanded2(!expanded2);
+  }
+
+  const expand3 = () => {
+    setExpanded3(!expanded3);
+    }
+
+
   return (
     <div>
       <div className="flex justify-between items-center">
@@ -20,7 +37,10 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
 
       <div className="mt-[40px]">
         <p className="text-2xl text-[#323F4B]">Capacity</p>
-        <div className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]">
+        <div
+          className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]"
+          onClick={expand1}
+        >
           <div className="flex justify-between items-center">
             <p className="text-2xl font-semibold text-[#4F4F4F]">
               Executive (08)
@@ -66,8 +86,147 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
               />
             </div>
           </div>
+
+          {/* expanded */}
+          {expanded1 && (
+            <div>
+              <div className="flex justify-between items-center mt-[32px]">
+                <p className="text-lg font-semibold text-[#1d1d1d]">
+                  Rooms available
+                </p>
+
+                <span className="text-[#FF385C]">
+                  <FaTrashAlt className="trash" />
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-[25px] mt-[30px]">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    101
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    102
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    103
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    104
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    105
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    106
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    107
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    108
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]">
+
+        <div className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]" onClick={expand2}>
           <div className="flex justify-between items-center">
             <p className="text-2xl font-semibold text-[#4F4F4F]">Deluxe (08)</p>
             <span className="text-lg font-semibold text-[#fff] bg-[#007FFF] py-[12px] px-[60px] rounded-[8px]">
@@ -111,8 +270,147 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
               />
             </div>
           </div>
+
+          {/* expanded */}
+          {expanded2 && (
+            <div>
+              <div className="flex justify-between items-center mt-[32px]">
+                <p className="text-lg font-semibold text-[#1d1d1d]">
+                  Rooms available
+                </p>
+
+                <span className="text-[#FF385C]">
+                  <FaTrashAlt className="trash" />
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-[25px] mt-[30px]">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    101
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    102
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    103
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    104
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    105
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    106
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    107
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    108
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]">
+
+        <div className="mt-[20px] shadow-lg py-[45px] px-[24px] rounded-[10px]" onClick={expand3}>
           <div className="flex justify-between items-center">
             <p className="text-2xl font-semibold text-[#4F4F4F]">
               HoneyMoon Suite
@@ -158,8 +456,147 @@ const Capacity = ({ currentID, setCurrentID, decrementId, incrementId }) => {
               />
             </div>
           </div>
+
+            {/* expanded */}
+            {expanded3 && (
+            <div>
+              <div className="flex justify-between items-center mt-[32px]">
+                <p className="text-lg font-semibold text-[#1d1d1d]">
+                  Rooms available
+                </p>
+
+                <span className="text-[#FF385C]">
+                  <FaTrashAlt className="trash" />
+                </span>
+              </div>
+
+              <div className="flex flex-wrap gap-[25px] mt-[30px]">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    101
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    102
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    103
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    104
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    105
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    106
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    107
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="room1"
+                    className="hidden"
+                    name="room1"
+                    value="room1"
+                  />
+                  <label
+                    for="room1"
+                    className="text-lg bg-[#EBEBEB] text-[#4F4F4F] py-[14px] px-[35px] rounded-[5px] block border border-[#4F4F4F]"
+                  >
+                    108
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
+
       <div className="grid md:grid-cols-3 grid-cols-1 mt-[40px] gap-40">
         <div className="col-span-2">
           <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
