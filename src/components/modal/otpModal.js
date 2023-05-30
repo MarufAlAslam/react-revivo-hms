@@ -35,6 +35,22 @@ const OtpModal = ({setDisplayModal}) => {
     });
   };
 
+  const verifyOTP = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const otp1 = form.otp1.value;
+    const otp2 = form.otp2.value;
+    const otp3 = form.otp3.value;
+    const otp4 = form.otp4.value;
+
+    const otp = otp1 + otp2 + otp3 + otp4;
+
+    // const data = {
+    //   otp,
+    // };
+
+  }
+
   return (
     <div className="otp-modal h-screen w-full fixed top-0 left-0 flex justify-center items-center z-20">
       <div className="otp-bg fixed top-0 left-0 bg-black opacity-50 h-screen w-full z-20"></div>
@@ -52,25 +68,29 @@ const OtpModal = ({setDisplayModal}) => {
               We have sent a verification code to 894783854
             </p>
 
-            <form className="mt-[45px]" action="/onBoarding">
+            <form className="mt-[45px]" onSubmit={verifyOTP}>
               <div className="flex justify-between items-center md:w-[80%]">
                 <input
                   type="number"
+                  name="otp1"
                   className="otp-input"
                   onChange={focusNextInput}
                 />
                 <input
                   type="number"
+                  name="otp2"
                   className="otp-input"
                   onChange={focusNextInput}
                 />
                 <input
                   type="number"
+                  name="otp3"
                   className="otp-input"
                   onChange={focusNextInput}
                 />
                 <input
                   type="number"
+                  name="otp4"
                   className="otp-input"
                   onChange={focusNextInput}
                 />
@@ -86,7 +106,7 @@ const OtpModal = ({setDisplayModal}) => {
                 </span>
               </p>
 
-              <button className="btn-primary w-full text-2xl font-semibold rounded-[8px] uppercase">
+              <button type="submit" className="btn-primary w-full text-2xl font-semibold rounded-[8px] uppercase">
                 VERIFY
               </button>
             </form>

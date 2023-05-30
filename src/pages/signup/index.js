@@ -9,6 +9,30 @@ const Signup = () => {
   const [displayModal, setDisplayModal] = useState(false);
   const sendOTP = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const phone = form.phone.value;
+
+    const data = {
+      countryCode : "+91",
+      phone
+    }
+
+    fetch("http://revivotech.in:8080/login/sendOTP", {
+      // mode: "no-cors",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "*/*",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+
+
     setDisplayModal(true);
   };
   return (
@@ -44,6 +68,7 @@ const Signup = () => {
                 <input
                   type="text"
                   className="input"
+                  name="phone"
                   placeholder="Mobile Number"
                   required
                 />
@@ -58,7 +83,7 @@ const Signup = () => {
                   </label>
                 </div>
 
-                <button className="btn-primary w-full mt-[80px] text-2xl font-semibold rounded-[8px] uppercase">
+                <button type="submit" className="btn-primary w-full mt-[80px] text-2xl font-semibold rounded-[8px] uppercase">
                   Sign up
                 </button>
               </form>
