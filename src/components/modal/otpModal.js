@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 
 import otpImg from "../../assets/images/svgs/otpImg.svg";
+import { useNavigate } from "react-router-dom";
 
 const OtpModal = ({setDisplayModal}) => {
+
+  const navigator = useNavigate()
 
     const closeModal = () => {
         setDisplayModal(false);
@@ -44,6 +47,30 @@ const OtpModal = ({setDisplayModal}) => {
     const otp4 = form.otp4.value;
 
     const otp = otp1 + otp2 + otp3 + otp4;
+
+    const phone = localStorage.getItem("phone");
+
+    const data = {
+      otp,
+      phone
+    }
+
+    fetch("http://revivotech.in:8080/login/verifyOTP", {
+      // mode: "no-cors",
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "accept": "*/*",
+      },
+      body: JSON.stringify(data),
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      localStorage.setItem("token", res.token);
+      navigator("/onBoarding")
+    })
+    .catch((err) => console.log(err));
+
 
     // const data = {
     //   otp,

@@ -12,6 +12,8 @@ const Signup = () => {
     const form = e.target;
     const phone = form.phone.value;
 
+    localStorage.setItem("phone", phone);
+
     const data = {
       countryCode : "+91",
       phone
