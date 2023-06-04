@@ -46,7 +46,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
   //   get uploaded image and preview in viewer
   // const [image, setImage] = React.useState(null);
   const [preview, setPreview] = React.useState(rect);
-
+  const [imageLoc, setImageLoc] = React.useState(null);
   const handleImageChange = (e) => {
     e.preventDefault();
     let reader = new FileReader();
@@ -56,6 +56,61 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
       setPreview(reader.result);
     };
     reader.readAsDataURL(file);
+
+    fetch("http://revivotech.in:8080/file/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: file,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setImageLoc(data.data);
+      });
+  };
+
+  const addHotel = (e) => {
+    e.preventDefault();
+    console.log("hotel added");
+
+    const form = e.target;
+
+    const hotel_name = form.hotel_name.value;
+    const email = form.email.value;
+    const contact_number = form.contact.value;
+    const city = form.city.value;
+    const address = form.address.value;
+    const gstin = form.gstin.value;
+    const logo = imageLoc;
+
+    const data = {
+      address,
+      city,
+      contactNumber: contact_number,
+      emailAdress: email,
+      gst: gstin,
+      logo,
+      name: hotel_name,
+    };
+
+    fetch("http://revivotech.in:8080/hotels", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.status === "success") {
+          incrementId();
+        }
+      });
   };
 
   return (
@@ -79,7 +134,105 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
           </p>
 
           <div className="mt-[56px]">
-            {formData.map((item, index) => (
+            <form onSubmit={addHotel}>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[0].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[0].label}
+                  </p>
+                </div>
+                <input
+                  name="hotel_name"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[1].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[1].label}
+                  </p>
+                </div>
+                <input
+                  name="email"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[2].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[2].label}
+                  </p>
+                </div>
+                <input
+                  name="contact"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[3].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[3].label}
+                  </p>
+                </div>
+                <input
+                  name="city"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[4].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[4].label}
+                  </p>
+                </div>
+                <input
+                  name="address"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+              <div className="item mb-[20px] flex justify-between items-start">
+                <div className="flex w-1/3 justify-start items-center">
+                  <img
+                    src={formData[5].icon}
+                    alt="icon"
+                    className="mr-[13px]"
+                  />
+                  <p className="text-lg text-[#4F4F4F] mr-[56px]">
+                    {formData[5].label}
+                  </p>
+                </div>
+                <input
+                  name="gstin"
+                  className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                />
+              </div>
+            </form>
+            {/* {formData.map((item, index) => (
               <div
                 className="item mb-[20px] flex justify-between items-start"
                 key={index}
@@ -92,7 +245,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 </div>
                 <input className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]" />
               </div>
-            ))}
+            ))} */}
           </div>
 
           <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
