@@ -15,33 +15,72 @@ const DocumentsVerification = ({
   const [bankName, setBankName] = React.useState("");
   const [bankSize, setBankSize] = React.useState("");
 
+  const upload = (e) => {
+    fetch("http://revivotech.in:8080/file/upload", {
+      method: "POST",
+      headers: {
+        ContentType: "Multipart/form-data",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: e.target.files[0],
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   // get the name of uploaded file and size
   const panUpload = (e) => {
     e.preventDefault();
     setPanName(e.target.files[0].name);
     setPanSize(e.target.files[0].size);
 
-    fetch('http://revivotech.in:8080/file/upload', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
-      body: e.target.files[0]
-    })
-    
+    upload(e);
   };
 
   const gstUpload = (e) => {
     e.preventDefault();
     setGstName(e.target.files[0].name);
     setGstSize(e.target.files[0].size);
+    upload(e);
   };
 
   const bankUpload = (e) => {
     e.preventDefault();
     setBankName(e.target.files[0].name);
     setBankSize(e.target.files[0].size);
+    upload(e);
+  };
+
+  const updateHotel = (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    const hotelId = localStorage.getItem("hotel_id");
+
+    fetch(`http://revivotech.in:8080/hotels/${hotelId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify({ 
+        panCard: panName,
+        gstCertificate: gstName,
+        bankAccountDetails: bankName,
+       }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        incrementId();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -66,7 +105,7 @@ const DocumentsVerification = ({
             Only pdf, jpeg, png documents allowed. (Max 1 MB)
           </p>
 
-          <div className="mt-[56px]">
+          <form onSubmit={updateHotel} className="mt-[56px]">
             <div className="flex justify-start items-center mb-[36px]">
               <div className="flex justify-between items-center md:w-[60%]">
                 <p className="text-lg text-[#535353]">Pan Card</p>
@@ -76,6 +115,7 @@ const DocumentsVerification = ({
                   onChange={panUpload}
                   className="hidden"
                   accept="application/pdf, image/png, image/jpeg"
+                  required
                 />
                 <label
                   htmlFor="pan-upload"
@@ -98,6 +138,7 @@ const DocumentsVerification = ({
                   onChange={gstUpload}
                   className="hidden"
                   accept="application/pdf, image/png, image/jpeg"
+                  required
                 />
                 <label
                   htmlFor="gst-upload"
@@ -120,6 +161,7 @@ const DocumentsVerification = ({
                   onChange={bankUpload}
                   className="hidden"
                   accept="application/pdf, image/png, image/jpeg"
+                  required
                 />
                 <label
                   htmlFor="bank-upload"
@@ -134,26 +176,26 @@ const DocumentsVerification = ({
                 {bankSize && "(" + Math.ceil(bankSize / 1024) + "KB)"}
               </p>
             </div>
-          </div>
 
-          <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
-            <div className="col-span-1">
-              <span
-                onClick={decrementId}
-                className="btn-white w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-[#007FFF] cursor-pointer"
-              >
-                baCK
-              </span>
+            <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
+              <div className="col-span-1">
+                <span
+                  onClick={decrementId}
+                  className="btn-white w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-[#007FFF] cursor-pointer"
+                >
+                  baCK
+                </span>
+              </div>
+              <div className="col-span-1">
+                <button
+                  type="submit"
+                  className="bg-[#007FFF] w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-white cursor-pointer"
+                >
+                  continue
+                </button>
+              </div>
             </div>
-            <div className="col-span-1">
-              <span
-                onClick={incrementId}
-                className="bg-[#007FFF] w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-white cursor-pointer"
-              >
-                continue
-              </span>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
