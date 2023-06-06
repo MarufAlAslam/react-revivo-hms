@@ -24,7 +24,7 @@ const Main = ({ currentID, setCurrentID }) => {
       };
   return (
     <div className="main-field p-[50px]">
-      <form>
+      <div>
         {currentID === 1 && (
           <PrimaryInfo currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />
         )}
@@ -36,7 +36,7 @@ const Main = ({ currentID, setCurrentID }) => {
         {currentID === 7 && <Images  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
         {currentID === 8 && <Policy  currentID={currentID} setCurrentID={setCurrentID} incrementId={incrementId} decrementId={decrementId} />}
 
-      </form>
+      </div>
     </div>
   );
 };

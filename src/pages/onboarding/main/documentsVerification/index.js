@@ -20,6 +20,16 @@ const DocumentsVerification = ({
     e.preventDefault();
     setPanName(e.target.files[0].name);
     setPanSize(e.target.files[0].size);
+
+    fetch('http://revivotech.in:8080/file/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: e.target.files[0]
+    })
+    
   };
 
   const gstUpload = (e) => {

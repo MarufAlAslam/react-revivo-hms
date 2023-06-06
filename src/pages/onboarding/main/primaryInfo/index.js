@@ -107,10 +107,11 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.status === "success") {
-          incrementId();
-        }
-      });
+        // set _id to local storage id
+        localStorage.setItem("hotel_id", data._id);
+        incrementId();
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -149,6 +150,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="hotel_name"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
               </div>
               <div className="item mb-[20px] flex justify-between items-start">
@@ -165,6 +167,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="email"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
               </div>
               <div className="item mb-[20px] flex justify-between items-start">
@@ -181,6 +184,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="contact"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
               </div>
               <div className="item mb-[20px] flex justify-between items-start">
@@ -197,6 +201,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="city"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
               </div>
               <div className="item mb-[20px] flex justify-between items-start">
@@ -213,6 +218,7 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="address"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
               </div>
               <div className="item mb-[20px] flex justify-between items-start">
@@ -229,7 +235,28 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input
                   name="gstin"
                   className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]"
+                  required
                 />
+              </div>
+
+              <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div className="col-span-1">
+                  <span
+                    onClick={decrementId}
+                    className="btn-white w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-[#007FFF] cursor-pointer"
+                  >
+                    baCK
+                  </span>
+                </div>
+                <div className="col-span-1">
+                  <button
+                    type="submit"
+                    // onClick={incrementId}
+                    className="bg-[#007FFF] w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-white cursor-pointer"
+                  >
+                    continue
+                  </button>
+                </div>
               </div>
             </form>
             {/* {formData.map((item, index) => (
@@ -246,25 +273,6 @@ const PrimaryInfo = ({ currentID, setCurrentID, decrementId, incrementId }) => {
                 <input className="h-[55px] w-2/3 bg-[#EDEDED] border border-[34F4F4F] rounded-[4px]" />
               </div>
             ))} */}
-          </div>
-
-          <div className="mt-[140px] grid md:grid-cols-2 grid-cols-1 gap-10">
-            <div className="col-span-1">
-              <span
-                onClick={decrementId}
-                className="btn-white w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-[#007FFF] cursor-pointer"
-              >
-                baCK
-              </span>
-            </div>
-            <div className="col-span-1">
-              <span
-                onClick={incrementId}
-                className="bg-[#007FFF] w-full block p-[24px] text-lg font-semibold text-center rounded-[10px] shadow-custom uppercase text-white cursor-pointer"
-              >
-                continue
-              </span>
-            </div>
           </div>
         </div>
         <div className="col-span-1">
