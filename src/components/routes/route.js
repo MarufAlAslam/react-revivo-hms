@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../../pages/login";
 import Signup from "../../pages/signup";
 import OnBoarding from "../../pages/onboarding";
+import Confirm from "../../pages/confirm";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     {
         path: "/onBoarding",
         element: <OnBoarding/>
+    },
+    {
+        path: "/confirmed",
+        element: <Confirm/>
     },
     {
         path: "*",
